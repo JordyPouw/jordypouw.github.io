@@ -1,0 +1,548 @@
+// ================================================================================
+// $ 6. COMPONENTS.
+// ? Designed components, chunks of UI.
+// ================================================================================
+
+
+// $ Page container.
+// ==================================================
+
+.page__container {
+	display: -webkit-flex;
+	display: flex;
+	min-height: 100vh;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+
+
+// $ Page header.
+// ==================================================
+
+.page__preheader {
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	min-height: 480px;
+	width: 100%;
+	height: 100%;
+	background: #EAEAEA;
+}
+
+.page__header {
+	position: relative;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	z-index: 0;
+	width: 100%;
+	height: 170px;
+	@include custom-mq(481px) {height: 200px;}
+	@include custom-mq(769px) {height: 225px;}
+	@include custom-mq(961px) {height: 250px;}
+	& h1 {
+		color: $color-white;
+		text-align: center;
+		@include font-size(24px);
+		@include custom-mq(481px) {@include font-size(28px);}
+		@include custom-mq(769px) {@include font-size(36px);}
+		@include custom-mq(961px) {@include font-size(46px);}
+		margin-top: 50px;
+	}
+}
+
+.page__header--bg {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: $background-1;
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 50%);
+	clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 50%);
+	@include custom-mq(569px) {
+		-webkit-clip-path: polygon(100% 0, 100% 50%, 50% 100%, 0 50%, 0 0);
+		clip-path: polygon(100% 0, 100% 50%, 50% 100%, 0 50%, 0 0);	
+	}
+}
+
+// Animation when loading finishes.
+.loaded .page__preheader {
+	@include animation(animLoadedHeader 1s cubic-bezier(0.7,0,0.3,1) forwards);
+}
+
+@include keyframes(animLoadedHeader) { 
+	to {@include transform(translate3d(0,-100%,0));}
+}
+
+// Change layout class for header.
+.layout-switch .page__preheader {
+	position: absolute;
+}
+
+
+// $ Logo & Loader.
+// ==================================================
+
+.logo,
+.loader {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	margin: 0;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.logo {
+	top: 0;
+	height: 100%;
+	@include transform(translate3d(0,25%,0));
+}
+
+.loader {
+	bottom: 20%;
+}
+
+.logo__inner,
+.loader__inner {
+	display: block;
+	margin: 0 auto;
+}
+
+.logo svg {
+	min-width: 320px;
+	max-width: 640px;
+	width: 45%;
+}
+
+.logo .j,
+.logo .r,
+.logo .d,
+.logo .y {
+	fill: #353535;
+}
+
+.logo .o {
+	fill: $color-1;
+}
+
+.loader svg path {
+	fill: none;
+	stroke-width: 10;
+}
+
+.loader--circleBg {
+	stroke: #ccc;
+}
+
+.loader--circle {
+	@include transition(stroke-dashoffset 0.2s);
+	stroke: $color-1;
+}
+
+// Animations while loading..
+.loading .logo,
+.loading .loader {
+	opacity: 1;
+	@include animation(animInitialHeader 0.8s cubic-bezier(0.7,0,0.3,1) both);
+}
+
+.loading .loader {
+	-webkit-animation-delay: 0.2s;
+	animation-delay: 0.2s;
+}
+
+@include keyframes(animInitialHeader) {
+	from {
+		opacity: 0; 
+		@include transform(translate3d(0,800px,0));
+	}
+}
+
+// ..when loading finishes.
+.loaded .logo,
+.loaded .loader {
+	opacity: 1;
+}
+
+.loaded .logo {
+	@include transform-origin(50% 0);
+	@include animation(animLoadedLogo 1s cubic-bezier(0.7,0,0.3,1) forwards);
+}
+
+@include keyframes(animLoadedLogo) {
+	to {@include transform(translate3d(0,100%,0) translate3d(0,50px,0) scale3d(0.65,0.65,1));}
+}
+
+.loaded .loader {
+	@include animation(animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards);
+}
+
+@include keyframes( animLoadedLoader) {
+	to { 
+		opacity: 0; 
+		@include transform(translate3d(0,-100%,0) scale3d(0.3,0.3,1));
+	}
+}
+
+// Change the color of the logo.
+.loaded .logo svg path {
+	@include transition(all 0.5s ease 0.3s);
+	fill: $color-white;
+}
+
+
+// $ Social.
+// ==================================================
+
+.social {
+	height: 100%;
+	position: relative;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-align-items: flex-end;
+	align-items: flex-end;
+}
+
+.social__icon {
+	margin-right: 18px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	position: relative;
+	z-index: 1;
+	box-shadow: 0 0 0 2px $color-1;
+	@include transition(color 0.3s);
+}
+
+.social__icon:after {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  content:'';
+  @include box-sizing(content-box);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  padding: 2px;
+  z-index: -1;
+  background: $background-1;
+  -webkit-transition: -webkit-transform 0.2s, opacity 0.3s;
+  -moz-transition: -moz-transform 0.2s, opacity 0.3s;
+  transition: transform 0.2s, opacity 0.3s;
+}
+
+.social__icon:hover {
+  color: $color-1;
+}
+
+.social__icon:hover:after {
+	@include transform (scale(1.5));
+  opacity: 0;
+}
+
+.social__link {
+	width: 30px;
+	height: 30px;
+	display: -webkit-flex;
+	display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+	&:hover svg path {fill: $color-1;}
+}
+
+.github__icon {
+	margin-top: 2px;
+}
+
+.twitter__icon {
+	margin-top: 1px;
+	margin-left: 1px;
+}
+
+.linkedin__icon {
+	margin-bottom: 1px;
+	margin-left: 1px;
+}
+
+
+// $ Page main.
+// ==================================================
+
+.page__main {
+	flex: 1;
+}
+
+// Animation when loading finishes.
+.loaded .page__main {
+	@include animation(animLoadedContent 1s cubic-bezier(0.7,0,0.3,1) both);
+}
+
+@include keyframes(animLoadedContent) {
+	from {
+		opacity: 0;
+		@include transform(translate3d(0,200px,0));
+	}
+}
+
+
+// $ Breadcrumb.
+// ==================================================
+
+.breadcrumb {
+	& a {
+		display: block;
+		padding: 10px 0;
+		font-size: 18px;
+	}
+	& span {
+		font-weight: 400;
+		font-size: 16px;
+	}
+}
+
+
+// $ Portfolio.
+// ==================================================
+
+.portfolio {
+	padding-top: 100px;
+}
+
+.portfolio__header {
+	text-align: right;
+}
+
+.portfolio__footer {
+	text-align: center;
+	font-size: 20px;
+	&.on-projectsPage {font-style: italic;}
+}
+
+.portfolio__projects {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	@include custom-mq(1200px) {
+		-webkit-flex-direction: row; 
+		flex-direction: row;
+	}
+}
+
+.projects--vertical {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	@include custom-mq(769px) {
+		-webkit-flex-direction: row;
+		flex-direction: row;
+		min-width: calc((300px + 10px) * 2); // 620px
+	}
+}
+
+.projects--horizontal {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+}
+
+.project--vertical {
+	width: 100%;
+	height: 300px;
+	margin-bottom: 10px;
+	@include custom-mq(769px) {
+		&:first-child {margin-right: 10px;}
+		height: 500px;
+	}
+	@include custom-mq(1200px) {
+		width: 300px;
+		margin-right: 10px;
+		margin-bottom: 0;
+	}
+}
+
+.project--horizontal {
+	width: 100%;
+	height: 160px;
+	margin-bottom: 10px;
+	float: left;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	@include custom-mq(1201px) {
+		max-width: calc(1160px - ((300px + 10px) * 2)); // 540px
+	}
+}
+
+.project a {
+	width: 100%;
+	height: 100%;
+	display: -webkit-flex;
+	display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  &:hover {
+  	background: rgba(0,0,0,0.25);
+  	& .project__icon {width: 75%; height: 75%;}
+  }
+}
+
+.project--1 {background-color: #003344;}
+.project--2 {background-color: #3EC7F4;}
+.project--3 {background-color: #354D64;}
+.project--4 {background-color: #FF9944;}
+.project--5 {background-color: #F36151;}
+
+.project a,
+.project__icon {
+	@include transition(all 0.5s ease);
+}
+
+.loaded .project {
+	@include animation(animLoadedProjects 1s cubic-bezier(0.7,0,0.3,1) both);
+}
+
+.loaded .project--1 {
+	-webkit-animation-delay: 0.1s;
+	animation-delay: 0.1s;
+}
+
+.loaded .project--2 {
+	-webkit-animation-delay: 0.2s;
+	animation-delay: 0.2s;
+}
+
+.loaded .project--3 {
+	-webkit-animation-delay: 0.3s;
+	animation-delay: 0.3s;
+}
+
+.loaded .project--4 {
+	-webkit-animation-delay: 0.4s;
+	animation-delay: 0.4s;
+}
+
+.loaded .project--5 {
+	-webkit-animation-delay: 0.5s;
+	animation-delay: 0.5s;
+}
+
+@include keyframes(animLoadedProjects) {
+	from { 
+		opacity: 0;
+		@include transform(translate3d(0,200px,0));
+	}
+}
+
+// $ Project overview.
+// ==================================================
+
+.project__overview {
+	padding-top: 100px;
+}
+
+.project__fullDescription {
+	margin-bottom: 20px;
+	& p {
+		max-width: 850px;
+	}
+
+	& time {
+		font-style: italic;
+	}
+}
+
+.project__gallery {
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+}
+
+.gallery__imgContainer {
+	width: 550px;
+	height: 275px;
+	margin-bottom: 10px;
+	overflow: hidden;
+	&:hover {cursor: pointer;}
+	@include custom-mq(960px) {margin-right: 10px;}
+}
+
+
+// $ About.
+// ==================================================
+
+.about {
+	padding-top: 100px;
+}
+
+.about__content {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	@include custom-mq(769px) {display: block;}
+}
+
+.about__content p {
+	@include font-size(20px);
+	&:first-of-type {order: 0;}
+	&:last-of-type {order: 2;}
+}
+
+.about__myPhoto {
+	background: url('../assets/img/about-myPhoto.jpg') center center;
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
+	border-radius: 50%;
+	order: 1;
+	@include custom-mq(769px) {
+		margin: 0;
+		border-radius: 0;
+		width: 350px;
+		height: 250px;
+		float: right;
+		margin-top: 8px;
+		shape-outside: polygon(0 0, 100% 0, 100% 100%, 75% 100%) margin-box;
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 75% 100%);
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 75% 100%);
+	}
+}
+
+// $ Page footer.
+// ==================================================
+
+.page__footer {
+	margin-top: 100px;
+	background: $background-1;
+}
+
+.page__footer p {
+	color: $color-white;
+	text-align: center;
+	padding: 4px;
+	margin: 0;
+}
+
+.copyleft {
+	transform: rotate(180deg);
+	display: inline-block;
+	padding-bottom: 1px;
+}
+

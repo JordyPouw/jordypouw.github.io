@@ -1,0 +1,97 @@
+// ================================================================================
+// $ 2. TOOLS.
+// ? Default mixins and functions.
+// ================================================================================
+
+
+// $ Mixins.
+// ==================================================
+
+@mixin box-sizing($box-sizing) {
+  -webkit-box-sizing: $box-sizing;
+  	 -moz-box-sizing: $box-sizing;
+  				box-sizing: $box-sizing;
+}
+
+@mixin box-shadow($box-shadow...) {
+	-webkit-box-shadow: $box-shadow;
+		 -moz-box-shadow: $box-shadow;
+					box-shadow: $box-shadow;
+}
+
+@mixin transform($transform) {
+	-webkit-transform: $transform;
+		 -moz-transform: $transform;
+			-ms-transform: $transform;
+			 -o-transform: $transform;
+					transform: $transform;
+}
+
+@mixin transform-origin($transform-origin) {
+	-webkit-transform-origin: $transform-origin;
+		 -moz-transform-origin: $transform-origin;
+			-ms-transform-origin: $transform-origin;
+			 -o-transform-origin: $transform-origin;
+					transform-origin: $transform-origin;
+}
+
+@mixin transition($transition...) {
+	-webkit-transition: $transition;
+		 -moz-transition: $transition;
+					transition: $transition;
+}
+
+@mixin animation($animation...) {
+	-webkit-animation: $animation;
+	-moz-animation: $animation;
+	animation: $animation;
+}
+
+@mixin keyframes($name) {
+
+	@-webkit-keyframes #{$name} {
+  	@content; 
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+@mixin font-face($font-family, $font-style, $font-weight, $src) {
+  @font-face {
+    font-family: $font-family;
+    src: url('#{$src}.woff') format('woff'),                 // Standards.
+         url('#{$src}.ttf') format('truetype'),              // Safari, Android, iOS.
+         url('#{$src}.svg##{$font-family}') format('svg');   // Legacy iOS.
+    font-style: $font-style;
+    font-weight: $font-weight;
+  }
+}
+
+@mixin font-size($size) {
+	font-size: px-to-em($size);
+}
+
+
+// $ Media queries.
+// ==============================
+
+@mixin custom-mq($width) {
+	@media only screen and (min-width: px-to-em($width)) {@content;}
+}
+
+
+// $ Functions.
+// ==================================================
+
+// Calculate px to em.
+@function px-to-em($size) {
+	$em-size: $size / $base-pixel-size;
+	@return $em-size * 1em;
+}
+
