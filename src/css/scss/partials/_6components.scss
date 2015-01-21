@@ -402,11 +402,11 @@
   }
 }
 
-.project--1 {background-color: #003344;}
-.project--2 {background-color: #3EC7F4;}
+.project--1 {background-color: #F36151;}
+.project--2 {background-color: #FF9944;}
 .project--3 {background-color: #354D64;}
-.project--4 {background-color: #FF9944;}
-.project--5 {background-color: #F36151;}
+.project--4 {background-color: #3EC7F4;}
+.project--5 {background-color: #003344;}
 
 .project a,
 .project__icon {
@@ -475,12 +475,22 @@
 }
 
 .gallery__imgContainer {
+	position: relative;
 	width: 550px;
 	height: 275px;
 	margin-bottom: 10px;
 	overflow: hidden;
 	&:hover {cursor: pointer;}
 	@include custom-mq(960px) {margin-right: 10px;}
+}
+
+.imgContainer__overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	box-shadow: inset 1px 1px 0, inset -1px -1px 0;
+	color: $color-1;
 }
 
 
@@ -543,6 +553,6 @@
 .copyleft {
 	transform: rotate(180deg);
 	display: inline-block;
-	padding-bottom: 1px;
+	padding-top: 1px;
 }
 
