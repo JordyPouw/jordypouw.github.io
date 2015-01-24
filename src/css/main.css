@@ -1100,7 +1100,8 @@ table {
 }
 
 .about__myPhoto {
-  background: url("../assets/img/about-myPhoto.jpg") center center;
+  background: url("../assets/img/about-myPhoto.jpg");
+  background-position-x: 85%;
   width: 250px;
   height: 250px;
   margin: 0 auto;
