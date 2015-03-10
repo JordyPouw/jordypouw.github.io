@@ -16,6 +16,7 @@ module.exports = function(grunt) {
           'dest/projects/internship-seoshop.html':      ['src/projects/internship-seoshop.html'],
           'dest/projects/hva-frontend2.html':           ['src/projects/hva-frontend2.html'],
           'dest/projects/hva-frontend1.html':           ['src/projects/hva-frontend1.html'],
+          'dest/projects/project-tula.html':            ['src/projects/project-tula.html'],
           'dest/projects/hva-search-findability.html':  ['src/projects/hva-search-findability.html']
         }
       }
