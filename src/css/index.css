@@ -12,3 +12,24 @@
 
   @media screen and (max-width: 467px) { right: -100px; }
 }
+
+.wave {
+  position: fixed;
+  top: -5vh;
+  right: 180px;
+  height: 110vh;
+
+  @media screen and (max-width: 467px) { right: 80px; }
+
+  &.wave4 {
+    transform: rotate(-5deg);
+  }
+
+  &.wave5 {
+    transform: rotate(5deg);
+  }
+
+  &.wave6 {
+    transform: rotate(-5deg);
+  }
+}
