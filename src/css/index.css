@@ -1,6 +1,14 @@
 @import 'necssary';
 
-/* Just a test :) */
+:root {
+  --color-1: #002e50;
+}
 
-.test { display: block }
-/* Asdf okay. */
+.self-portrait {
+  position: fixed;
+  bottom: -1px;
+  right: -1px;
+  height: 90vh;
+
+  @media screen and (max-width: 467px) { right: -100px; }
+}
