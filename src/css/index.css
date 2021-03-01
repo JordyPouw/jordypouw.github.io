@@ -16,10 +16,10 @@
 .wave {
   position: fixed;
   top: -5vh;
-  right: 180px;
+  right: 22vh;
   height: 110vh;
 
-  @media screen and (max-width: 467px) { right: 80px; }
+  @media screen and (max-width: 467px) { right: 8vh; }
 
   &.wave4 {
     transform: rotate(-5deg);
