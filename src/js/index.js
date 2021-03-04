@@ -1,12 +1,20 @@
-import { myself } from "./myself";
-import { wave4, wave5, wave6 } from "./waves";
+import "./its-me";
 
-document.body.innerHTML = myself() + wave6() + wave5() + wave4();
+const typewriter = ({ elem, text, speed, index }) => {
+  (function ticking() {
+    if (index < text.length) {
+      elem.innerHTML += text.charAt(index);
+      index++;
+      setTimeout(ticking, speed);
+    }
+  })();
+};
 
-const waves = document.querySelectorAll(".wave");
-
-setInterval(() => {
-  waves.forEach((wave) =>
-    wave.style.setProperty("--animation-time", Math.random() * 3 + 1 + "s")
-  );
-}, 4000);
+setTimeout(() => {
+  typewriter({
+    elem: document.querySelector(".hello-text"),
+    text: "Hi there, \n How you doin'?",
+    speed: 200 - Math.random() * 100,
+    index: 0,
+  });
+}, 1000);
