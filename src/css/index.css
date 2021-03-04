@@ -1,41 +1,4 @@
 @import 'necssary';
-
-:root {
-  --color-1: #002e50;
-}
-
-.self-portrait {
-  position: fixed;
-  bottom: -1px;
-  right: -1px;
-  height: 90vh;
-
-  @media screen and (max-width: 467px) { right: -100px; }
-}
-
-.wave {
-  position: fixed;
-  top: -5vh;
-  right: 22vh;
-  height: 110vh;
-  animation: thunder var(--animation-time) ease alternate infinite;
-
-  @media screen and (max-width: 467px) { right: 8vh; }
-
-  &.wave4 {
-    transform: rotate(-5deg);
-  }
-
-  &.wave5 {
-    transform: rotate(5deg);
-  }
-
-  &.wave6 {
-    transform: rotate(-5deg);
-  }
-}
-
-@keyframes thunder {
-  0% { opacity: 0.2; }
-  100% { opacity: 1; }
-}
+@import './base.css';
+@import './its-me.css';
+@import './hello.css';

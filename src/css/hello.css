@@ -1,0 +1,8 @@
+.hello-text {
+  position: relative;
+  top: 25vh;
+  left: 10vw;
+  display: inline-block;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  white-space: pre-line;
+}
