@@ -1,20 +1,11 @@
 import "./its-me";
-
-const typewriter = ({ elem, text, speed, index }) => {
-  (function ticking() {
-    if (index < text.length) {
-      elem.innerHTML += text.charAt(index);
-      index++;
-      setTimeout(ticking, speed);
-    }
-  })();
-};
+import { typewriter } from "./typewriter";
 
 setTimeout(() => {
   typewriter({
     elem: document.querySelector(".hello-text"),
-    text: "Hi there, \n How you doin'?",
-    speed: 200 - Math.random() * 100,
-    index: 0,
+    sentences: ["The future", "is yesterday"],
+    lineTag: "p",
+    speed: 300 * Math.random() + 100,
   });
 }, 1000);
