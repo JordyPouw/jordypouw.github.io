@@ -1,9 +1,16 @@
-export const typewriter = ({ elem, sentences, lineTag, speed }) => {
+export const typewriter = ({
+  elem,
+  sentences,
+  lineTag,
+  minSpeed,
+  maxSpeed,
+}) => {
   const length = sentences.length;
   let index = 0;
   let current = 0;
 
   function ticking(text) {
+    const speed = maxSpeed * Math.random() + minSpeed;
     if (index < text.length) {
       if (index === 0) {
         const line = document.createElement(lineTag);
