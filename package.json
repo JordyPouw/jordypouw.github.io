@@ -8,7 +8,7 @@
   "homepage": "http://jordypouw.github.io",
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build"
+    "build": "snowpack build --reload --verbose"
   },
   "dependencies": {
     "necssary": "^0.4.1"
