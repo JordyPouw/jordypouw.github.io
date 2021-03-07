@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+  --color-1: #002e50;
+}
+
+body {
+  font-family: 'Varela', sans-serif;
+  color: #444;
+  background: #EAEAEA;
+}

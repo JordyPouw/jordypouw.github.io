@@ -1,0 +1,25 @@
+{
+  "short_name": "Jordy",
+  "name": "The original Jordy Pouw",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "touch-icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "touch-icon-1024.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#222",
+  "background_color": "#FFF"
+}

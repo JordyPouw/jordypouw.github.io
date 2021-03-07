@@ -1,0 +1,30 @@
+.code {
+  z-index: 50;
+  position: fixed;
+  bottom: 20vh;
+  left: 10vw;
+  width: 80vw;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.5);
+  padding: 4ex;
+  color: #FAFAFA;
+  background: rgba(51,51,51,0.95);
+  font-family: 'VT323', monospace;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+
+  @media screen and (min-width: 769px) { max-width: 40vw; }
+}
+
+.code .code-lines {
+  overflow-y: scroll;
+  height: 30vh;
+
+  &::-webkit-scrollbar { width: 6px; }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background: var(--color-1);
+  }
+
+  &::-webkit-scrollbar-track { border-radius: 6px; }
+}
