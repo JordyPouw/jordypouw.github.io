@@ -1,3 +1,4 @@
+import "./dickbutt";
 import "./its-me";
 import { typewriter } from "./typewriter";
 
