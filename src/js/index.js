@@ -4,7 +4,7 @@ import { typewriter } from "./typewriter";
 
 setTimeout(() => {
   typewriter({
-    elem: document.querySelector(".code-lines"),
+    elem: document.querySelector(".js-code-lines"),
     sentences: [
       "cd projects/jordypouw.github.io/",
       "run expose",
@@ -38,7 +38,7 @@ setTimeout(() => {
 }, 1000);
 
 // observer.
-const target = document.querySelector(".code-lines");
+const target = document.querySelector(".js-code-lines");
 const observer = new MutationObserver((mutations) => {
   mutations.forEach(() => {
     target.scrollTop = target.scrollHeight;

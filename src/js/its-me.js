@@ -1,10 +1,10 @@
 import { myself } from "./myself";
 import { wave4, wave5, wave6 } from "./waves";
 
-document.querySelector(".its-me").innerHTML =
+document.querySelector(".js-its-me").innerHTML =
   myself() + wave6() + wave5() + wave4();
 
-const waves = document.querySelectorAll(".wave");
+const waves = document.querySelectorAll(".js-wave");
 
 setInterval(() => {
   waves.forEach((wave) =>
