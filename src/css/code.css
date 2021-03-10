@@ -36,5 +36,6 @@
   padding: 0;
   color: #FAFAFA;
   background: transparent;
-  caret-color: #F8E71C;
+  color: #F8E71C;
+  caret-color: currentColor;
 }
