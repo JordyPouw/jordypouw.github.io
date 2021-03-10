@@ -2,12 +2,32 @@ import "./dickbutt";
 import "./its-me";
 import { typewriter } from "./typewriter";
 
-setTimeout(() => {
+const input = document.querySelector(".js-code-input");
+input.focus();
+
+setTimeout(
+  () =>
+    typewriter({
+      elem: input,
+      sentences: ["run expose"],
+      minSpeed: 50,
+      maxSpeed: 100,
+      onEnd: () => {
+        setTimeout(() => {
+          input.value = "";
+          input.blur();
+          expose();
+        }, 1000);
+      },
+    }),
+  2000
+);
+
+const expose = () =>
   typewriter({
     elem: document.querySelector(".js-code-lines"),
     sentences: [
       "cd projects/jordypouw.github.io/",
-      "run expose",
       "........ ✓",
       "Name: Jordy Pouw",
       "Date of birth: unknown",
@@ -34,8 +54,10 @@ setTimeout(() => {
     lineTag: "p",
     minSpeed: 50,
     maxSpeed: 100,
+    onEnd: () => {
+      input.focus();
+    },
   });
-}, 1000);
 
 // observer.
 const target = document.querySelector(".js-code-lines");
