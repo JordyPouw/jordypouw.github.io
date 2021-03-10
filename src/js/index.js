@@ -11,7 +11,6 @@ input.addEventListener("keyup", (e) => {
   if (e.keyCode === 13) {
     const value = input.value;
     input.value = "";
-    console.log("value", value);
     codelines.innerHTML += `<span class="user-input">${value}</span>`;
   }
 });
