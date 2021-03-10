@@ -2,8 +2,19 @@ import "./dickbutt";
 import "./its-me";
 import { typewriter } from "./typewriter";
 
+const codelines = document.querySelector(".js-code-lines");
+
 const input = document.querySelector(".js-code-input");
 input.focus();
+
+input.addEventListener("keyup", (e) => {
+  if (e.keyCode === 13) {
+    const value = input.value;
+    input.value = "";
+    console.log("value", value);
+    codelines.innerHTML += `<span class="user-input">${value}</span>`;
+  }
+});
 
 setTimeout(
   () =>
@@ -25,7 +36,7 @@ setTimeout(
 
 const expose = () =>
   typewriter({
-    elem: document.querySelector(".js-code-lines"),
+    elem: codelines,
     sentences: [
       "cd projects/jordypouw.github.io/",
       "........ ✓",
