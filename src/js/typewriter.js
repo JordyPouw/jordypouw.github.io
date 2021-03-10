@@ -19,7 +19,9 @@ export const typewriter = ({
         elem.appendChild(line);
       }
       if (lineTag) {
-        elem.querySelectorAll(lineTag)[current].innerHTML += text.charAt(index);
+        const nodes = elem.querySelectorAll(`.line-${current + 1}`);
+        const last = nodes[nodes.length - 1];
+        last.innerHTML += text.charAt(index);
       } else {
         elem.value += text.charAt(index);
       }

@@ -12,6 +12,7 @@ input.addEventListener("keyup", (e) => {
     const value = input.value;
     input.value = "";
     codelines.innerHTML += `<span class="user-input">${value}</span>`;
+    if (value === "run expose") expose();
   }
 });
 
