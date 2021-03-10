@@ -19,6 +19,7 @@
   overflow-y: scroll;
   height: 30vh;
   margin-bottom: 10px;
+  white-space: pre;
 
   &::-webkit-scrollbar { width: 6px; }
 
