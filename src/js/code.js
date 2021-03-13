@@ -6,7 +6,7 @@ const input = document.querySelector(".js-code-input");
 const prefix = "dude";
 input.focus();
 
-const opthelp = ["--help", "--h"];
+const opthelp = ["--help", "-h"];
 const optwho = ["whoyou", "who are you"];
 const optwhat = ["whatyoudo", "got some projects"];
 const optdm = ["dmme", "lemme slide in your dm"];
