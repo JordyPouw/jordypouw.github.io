@@ -12,6 +12,19 @@
   font-family: 'VT323', monospace;
   font-size: clamp(1rem, 2vw, 1.5rem);
 
+  &:before {
+    z-index: 10;
+    position: absolute;
+    bottom: 4.7ex;
+    left: 4ex;
+    width: 1.3ex;
+    height: 1.3ex;
+    border-radius: 50%;
+    background: var(--color-4);
+    pointer-events: none;
+    content: "";
+  }
+
   @media (prefers-color-scheme: dark) {
     box-shadow: 0 3px 10px rgba(0,0,0,0.4);
     color: #d1d1d1;
@@ -51,6 +64,7 @@
   width: 100%;
   border: 0;
   padding: 0;
+  padding-left: 3ex;
   background: transparent;
   color: var(--color-4);
   caret-color: currentColor;
