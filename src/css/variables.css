@@ -1,0 +1,19 @@
+:root {
+  --default-color: #444;
+  --default-background: #EAEAEA;
+
+  --color-1: #002e50;
+  --color-2: #50E3C2;
+  --color-3: #4A90E2;
+  --color-4: #F8E71C;
+
+  @media (prefers-color-scheme: dark) {
+    --default-color: #EAEAEA;
+    --default-background: #101325;
+
+    --color-1: #0b2e35;
+    --color-2: #38a28b;
+    --color-3: #31619a;
+    --color-4: #9e9310;
+  }
+}

@@ -12,6 +12,11 @@
   font-family: 'VT323', monospace;
   font-size: clamp(1rem, 2vw, 1.5rem);
 
+  @media (prefers-color-scheme: dark) {
+    color: #d1d1d1;
+    background: rgba(51,51,51,0.6);
+  }
+
   @media screen and (min-width: 769px) { max-width: 40vw; }
 }
 
@@ -33,7 +38,7 @@
 
 .code .user-input {
   display: block;
-  color: #F8E71C;
+  color: var(--color-4);
 }
 
 .code .code-input {
@@ -41,6 +46,6 @@
   border: 0;
   padding: 0;
   background: transparent;
-  color: #F8E71C;
+  color: var(--color-4);
   caret-color: currentColor;
 }

@@ -1,4 +1,5 @@
 @import 'necssary';
+@import './variables.css';
 @import './base.css';
 @import './its-me.css';
 @import './code.css';

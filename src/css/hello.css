@@ -10,10 +10,10 @@
 
 .hello-text .line {
   color: #FFF;
-  text-shadow: -2px -1px 25px #4A90E2, -2px -1px 15px var(--color-1);
+  text-shadow: -2px -1px 25px var(--color-3), -2px -1px 15px var(--color-1);
 
   &.line-2 {
     padding-left: 4vw;
-    text-shadow: 3px 3px 20px #50E3C2, 2px 1px 15px var(--color-1);
+    text-shadow: 3px 3px 20px var(--color-2), 2px 1px 15px var(--color-1);
   }
 }
