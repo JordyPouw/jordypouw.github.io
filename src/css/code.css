@@ -27,7 +27,12 @@
   margin-bottom: 10px;
   white-space: pre;
 
-  &::-webkit-scrollbar { width: 6px; }
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-corner { background-color: transparent; }
 
   &::-webkit-scrollbar-thumb {
     border-radius: 6px;
