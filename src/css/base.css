@@ -1,9 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
 
 body {
   min-height: 100vh;
-  font-family: 'Varela', sans-serif;
   color: var(--default-color);
-  background: var(--default-background);
+  background: #EAEAEA;
+  line-height: 1.5;
+  font-family: 'Rubik', sans-serif;
+
+  @media (prefers-color-scheme: dark) {
+    background: linear-gradient(#171c38, #101325);
+  }
 }
