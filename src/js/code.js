@@ -19,7 +19,7 @@ const cmd = (value) => {
     ...optwhat,
     ...optdm,
     ...optsurp,
-  ].find((opt) => opt === value);
+  ].find((opt) => opt === value.toLowerCase());
 
   if (opthelp.includes(command)) help();
   if (optwho.includes(command)) whoyou();
