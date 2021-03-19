@@ -153,7 +153,7 @@ const dmme = () =>
 const surprise = () =>
   typewriter({
     elem: codelines,
-    sentences: ["Open devtools", "Check console", "You're welcome :)", " "],
+    sentences: ["Open devtools", "Check console", " "],
     lineTag: "p",
     minSpeed: 10,
     maxSpeed: 50,
