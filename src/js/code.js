@@ -8,8 +8,8 @@ input.focus();
 const opthelp = ["help"];
 const optwho = ["who are you"];
 const optwhat = ["what do you do"];
-const optdm = ["can i contact you?"];
-const optsurp = ["surprise?!"];
+const optdm = ["can i contact you"];
+const optsurp = ["surprise"];
 
 // input handler.
 const cmd = (value) => {
@@ -77,6 +77,7 @@ const help = () =>
       `  - ${optwhat.join(", ")}`,
       `  - ${optdm.join(", ")}`,
       `  - ${optsurp.join(", ")}`,
+      " ",
     ],
     lineTag: "p",
     minSpeed: 1,
@@ -97,22 +98,16 @@ const whoyou = () =>
       "Location: The Netherlands",
       "Profession: Lets code do brrrr",
       "ERROR",
-      "ERROR",
       "Github: https://github.com/jordypouw",
       "Socially awkward: ☑",
+      "ERROR",
       "Ability to fly: ☒",
       "Traveled through time: ☑",
       "CLASSIFIED",
       "CLASSIFIED",
       "CLASSIFIED",
       "Program terminated",
-      "....................",
-      "Protocol breached",
-      "Activate self destruction",
-      ".......... 3",
-      ".......... 2",
-      ".......... 1",
-      "Gotcha :')",
+      " ",
     ],
     lineTag: "p",
     minSpeed: 50,
@@ -125,10 +120,19 @@ const whoyou = () =>
 const whatyoudo = () =>
   typewriter({
     elem: codelines,
-    sentences: ["Ehhh.. working on this 1"],
+    sentences: [
+      "Currently just messing around",
+      "Trying some new stuff :)",
+      " ",
+      "Some free-time work:",
+      "  - https://jordypouw.github.io/necssary/",
+      "  - https://github.com/JordyPouw/michelangelo",
+      "Should really update the last one..",
+      " ",
+    ],
     lineTag: "p",
-    minSpeed: 50,
-    maxSpeed: 100,
+    minSpeed: 20,
+    maxSpeed: 50,
     onEnd: () => {
       input.focus();
     },
@@ -137,7 +141,7 @@ const whatyoudo = () =>
 const dmme = () =>
   typewriter({
     elem: codelines,
-    sentences: ["Ehhh.. working on this 2"],
+    sentences: ["jordypouw at gmail dot com", " "],
     lineTag: "p",
     minSpeed: 50,
     maxSpeed: 100,
@@ -149,10 +153,10 @@ const dmme = () =>
 const surprise = () =>
   typewriter({
     elem: codelines,
-    sentences: ["Ehhh.. working on this 3"],
+    sentences: ["Open devtools", "Check console", "You're welcome :)", " "],
     lineTag: "p",
-    minSpeed: 50,
-    maxSpeed: 100,
+    minSpeed: 10,
+    maxSpeed: 50,
     onEnd: () => {
       input.focus();
     },
