@@ -3,14 +3,13 @@ import { typewriter } from "./typewriter";
 // init.
 const codelines = document.querySelector(".js-code-lines");
 const input = document.querySelector(".js-code-input");
-const prefix = "dude";
 input.focus();
 
-const opthelp = ["--help", "-h"];
-const optwho = ["whoyou", "who are you"];
-const optwhat = ["whatyoudo", "got some projects"];
-const optdm = ["dmme", "lemme slide in your dm"];
-const optsurp = ["surprise", "gimme"];
+const opthelp = ["help"];
+const optwho = ["who are you"];
+const optwhat = ["what do you do"];
+const optdm = ["can i contact you?"];
+const optsurp = ["surprise?!"];
 
 // input handler.
 const cmd = (value) => {
@@ -20,7 +19,7 @@ const cmd = (value) => {
     ...optwhat,
     ...optdm,
     ...optsurp,
-  ].find((opt) => `${prefix} ${opt}` === value);
+  ].find((opt) => opt === value);
 
   if (opthelp.includes(command)) help();
   if (optwho.includes(command)) whoyou();
@@ -52,7 +51,7 @@ setTimeout(
   () =>
     typewriter({
       elem: input,
-      sentences: ["dude --help"],
+      sentences: ["help"],
       minSpeed: 50,
       maxSpeed: 100,
       onEnd: () => {
@@ -70,13 +69,10 @@ const help = () =>
   typewriter({
     elem: codelines,
     sentences: [
-      "How dis work?",
-      "  dude [command] [flags]",
+      "I can only understand the following",
+      "commands at this moment:",
       " ",
-      "All of the 1 flags:",
-      `  ${opthelp.join(", ")}`,
-      " ",
-      "Commands:",
+      `  - ${opthelp.join(", ")}`,
       `  - ${optwho.join(", ")}`,
       `  - ${optwhat.join(", ")}`,
       `  - ${optdm.join(", ")}`,
